@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jakob Kaur Kelder | Developer Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #DDD0C8;
+      --panel: #ffffff;
+      --text: #323232;
+      --muted: #6b6b6b;
+      --accent: #323232;
+      --border: #d1c7c0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #DDD0C8, #f3ede8);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(221, 208, 200, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text);
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+    }
+
+    .hero span {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--text);
+      color: var(--text);
+    }
+
+    .btn.secondary:hover {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 0;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .project h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: linear-gradient(180deg, #ffffff, #f6f1ed);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      transition: transform 0.2s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateX(6px);
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      background: #f3ede8;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* CONTACT */
+    #contact .panel p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">Jakob Kaur Kelder</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+      <div>
+        <h1>Hi, I'm <span>Jakob Kaur Kelder</span></h1>
+        <p>Software developer</p>
+        <div class="actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="Jakob Kaur Kelder CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="panel">
+        <p>
+          I’m Jakob Kaur Kelder, a software developer currently studying at Tartu Vocational College (3rd year).
+          I enjoy building clean, functional software and learning new technologies.
+        </p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="panel">
+        <p><strong>Tartu Katoliku Hariduskeskus</strong> — 2012–2021</p>
+        <p><strong>Miina Härma Gümnaasium</strong> — 2021–2022</p>
+        <p><strong>Tartu Vocational College</strong> — Software Developer (3rd year)</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <a class="panel project" href="https://github.com/KasparKoorits/NBA_HigherOrLower" target="_blank">
+          <h3>NBA Higher or Lower Game</h3>
+          <p>NBA Higher or Lower guessing game built with JavaScript.</p>
+        </a>
+        <div class="panel project">
+          <h3>Coming Soon</h3>
+          <p>More projects will be added here.</p>
+        </div>
+        <div class="panel project">
+          <h3>Coming Soon</h3>
+          <p>More projects will be added here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <div class="skill-item"><div class="skill-icon">⚛</div>React</div>
+          <div class="skill-item"><div class="skill-icon">HTML</div>HTML</div>
+          <div class="skill-item"><div class="skill-icon">CSS</div>CSS</div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <div class="skill-item"><div class="skill-icon">JS</div>Node.js</div>
+          <div class="skill-item"><div class="skill-icon">EX</div>Express</div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <div class="skill-item"><div class="skill-icon">SQL</div>MySQL</div>
+          <div class="skill-item"><div class="skill-icon">MDB</div>MariaDB</div>
+          <div class="skill-item"><div class="skill-icon">MG</div>MongoDB</div>
+          <div class="skill-item"><div class="skill-icon">APX</div>Oracle APEX</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>Email: jakob-kaur.kelder@voco.ee</p>
+        <p>GitHub: github.com/JakobKaur</p>
+        <p>Instagram: jakob__kaur</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Jakob Kaur Kelder — All rights reserved
+  </footer>
+
+</body>
+</html>
