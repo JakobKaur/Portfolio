@@ -362,6 +362,77 @@
       .hero { min-height: 78vh; }
     }
 
+    /* CONTACT FORM */
+.contact-form{
+  display: grid;
+  gap: 1rem;
+}
+
+.form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group{
+  display: grid;
+  gap: 0.4rem;
+}
+
+label{
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+input, textarea{
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.85);
+  color: var(--text);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus{
+  outline: none;
+  border-color: rgba(0,0,0,0.35);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-hint{
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.form-status{
+  display:none;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.75);
+  font-weight: 800;
+}
+
+.form-status.show{
+  display:block;
+}
+
+@media (max-width: 820px){
+  .form-row{
+    grid-template-columns: 1fr;
+  }
+}
+
  
   </style>
 </head>
